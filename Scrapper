@@ -1,0 +1,7 @@
+url = 'https://www.urionlinejudge.com.br/repository/UOJ_1561.html'
+html_source = requests.get(url).text
+
+soup = BeautifulSoup(html_source, 'html.parser')
+
+users = soup.find('div', {'class':'problem'})
+print(users.text)
