@@ -3,6 +3,7 @@ from discord.ext import commands
 import requests
 from bs4 import BeautifulSoup
 import os
+import keep_alive
 
 client = commands.Bot(command_prefix = "!")
 #answers with the ms latency
@@ -14,5 +15,6 @@ async def URI(ctx):
     problem = soup.find('div', {'class':'problem'})
     await ctx.send(problem.text)
 
+keep_alive()
 token = os.environ.get("DISCORD_BOT_SECRET")
 client.run(token)
